@@ -1,0 +1,22 @@
+{% block title %}Admin{% endblock %}
+
+{% block content %}
+  <h1>Admin 👔</h1>
+  <button>Iniciar</button>
+  <video src="/static/frequency.mp4" hidden></video>
+{% endblock %}
+
+{% block script %}
+  <script>
+    const btn = document.querySelector("button");
+    const video = document.querySelector("video");
+
+    btn.addEventListener("click", () => {
+      fetch("/startup")
+        .then(console.log)
+        .catch(console.error);
+
+      video.play();
+    });
+  </script>
+{% endblock %}

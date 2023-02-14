@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Teste de audição{% endblock %}
+
+{% block content %}
+  <h1>Teste de Audição 🔈</h1>
+
+  <div>
+    <label for="username">Usuário:</label>
+    <input type="text" placeholder="Insira seu nome" />
+  </div>
+
+  <button>Enviar</button>
+{% endblock %}
+
+{% block script %}
+  <script>
+    const btn = document.querySelector("button");
+    const input = document.querySelector("input");
+
+    btn.addEventListener("click", () => {
+      const name = input.value;
+
+      fetch(`/time/${name}`, { method: "POST"})
+        .then(console.log)
+        .catch(console.error);
+
+      setTimeout(() => (window.location.href = `/results/${name}`), 2000);
+    });
+  </script>
+{% endblock %}

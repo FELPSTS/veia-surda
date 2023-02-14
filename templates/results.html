@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Resultados{% endblock %}
+
+{% block content %}
+  <h1>Resultados 📈</h1>
+  
+  <p>Você escutou até {{ results[name] }} Hz</p>
+  
+  <p>Média da turma: {{ average }}</p>
+  
+  <table>
+    {% for name, time in results.items() %}
+      <tr>
+        <td>{{ name }}</td>
+        <td>{{ time }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
